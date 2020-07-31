@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://bevacqua.github.io/dragula/dist/dragula.css">
+</head>
+<body>
+<div id="inner_wrap">
+    <link rel="stylesheet" href="mobile.css">
+    <!--The Main Thing-->
+    <div id="wrapper" style="perspective: 1300px;">
+        <div class="phone view_2" id="phone_1" style="width: 360px; height: 640px;">
+            <div class="drop-target"/>
+
+            <!--<iframe src="http://designhooks.com" id="frame_1"></iframe>-->
+        </div>
+    </div>
+
+    <div class="left">
+        <div>
+            <div>
+                <div id="drag-elements">
+                    <div>김예지</div>
+                    <div>강상민</div>
+                    <div>강준식1</div>
+                    <div>강준식2</div>
+                    <div>강준식3</div>
+                    <div>강준식4</div>
+                    <div>강준식5</div>
+                </div>
+            </div>
+        </div>
+
+
+        <!--
+        <div id="drop-target">
+        </div>
+        -->
+    </div>
+
+    <div class="right">
+        <div id="display">Display</div>
+    </div>
+    <div class="container">
+
+
+    </div>
+
+    <!--Controls etc.-->
+    <div id="controls">
+
+    </div>
+
+    <div id="phone-controls">
+        <div id="views">
+            <button value="2">Front View</button>
+        </div>
+
+        <div id="phones">
+            <button value="1">iPhone 6</button>
+            <button value="2">Samsung Galaxy Note</button>
+            <button value="3">Microsoft Lumia 1020</button>
+            <button value="4">HTC One</button>
+            <button value="5">iPad Mini</button>
+        </div>
+    </div>
+
+</div>
+</body>
+
+<script src="https://bevacqua.github.io/dragula/dist/dragula.js" charset="UTF-8"></script>
+<script>
+    /*Only needed for the controls*/
+    phone = document.getElementById("phone_1");
+    //iframe = document.getElementById("frame_1");
+
+    /*View*/
+    function updateView(view) {
+        if (view) {
+            phone.className = "phone view_" + view;
+        }
+    }
+
+    /*Controls*/
+    function updateIframe() {
+        // preload iphone width and height
+        phone.style.width = "375px";
+        phone.style.height = "667px";
+
+        /*Idea by /u/aerosole*/
+        /*
+        document.getElementById("wrapper").style.perspective = (
+            document.getElementById("iframePerspective").checked ? "1300px" : "none"
+        );
+        */
+    }
+
+    updateIframe();
+
+    /*Events*/
+    document.getElementById("controls").addEventListener("change", function () {
+        updateIframe();
+    });
+
+    document.getElementById("views").addEventListener("click", function (evt) {
+        updateView(evt.target.value);
+    });
+
+    document.getElementById("phones").addEventListener("click", function (evt) {
+
+        if (evt.target.value == 1) {
+            // iphone 6
+            width = 375;
+            height = 667;
+        }
+
+        if (evt.target.value == 2) {
+            // samsung
+            width = 400;
+            height = 640;
+        }
+
+        if (evt.target.value == 3) {
+            // microsoft
+            width = 320;
+            height = 480;
+        }
+
+        if (evt.target.value == 4) {
+            // htc
+            width = 360;
+            height = 640;
+        }
+
+        if (evt.target.value == 5) {
+            // ipad mini
+            width = 768;
+            height = 1024;
+        }
+
+        phone.style.width = width + "px";
+        phone.style.height = height + "px";
+
+    });
+
+
+    iframe = document.getElementById('frame_1');
+
+    function $(id) {
+        return document.getElementById(id);
+    }
+
+    function CN(className) {
+        return document.querySelector(className);
+    }
+
+    dragula(
+        [document.querySelector('#drag-elements')].concat(
+            Array.from(document.querySelectorAll('.drop-target'))
+        ), {
+            revertOnSpill: true
+        }).on('drop', function (el) {
+        /*
+        if (CN('.drop-target').children.length > 0) {
+            $('display').innerHTML = CN('.drop-target').innerHTML;
+        } else {
+            $('display').innerHTML = "Display";
+        }
+        */
+    });
+
+    /*
+    dragula([$('drag-elements'), $('drop-target')], {
+        revertOnSpill: true
+    }).on('drop', function (el) {
+        if ($('drop-target').children.length > 0) {
+            $('display').innerHTML = $('drop-target').innerHTML;
+        } else {
+            $('display').innerHTML = "Display";
+        }
+
+    });
+    */
+
+    /*
+    if (iframe.attachEvent) {
+        iframe.attachEvent("onload", function () {
+            afterLoading();
+        });
+    } else {
+        iframe.onload = function () {
+            //afterLoading();
+        };
+    }
+    */
+
+    /*
+    function afterLoading() {
+        setTimeout(function () {
+            phone.className = "phone view_1";
+            setTimeout(function () {
+                // do second thing
+                phone.className = "phone view_1 rotate";
+            }, 1000);
+        }, 1000);
+    }
+     */
+
+
+</script>
+</html>

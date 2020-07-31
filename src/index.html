@@ -1,0 +1,53 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="drag.css">
+    <link rel="stylesheet" href="https://bevacqua.github.io/dragula/dist/dragula.css">
+
+    <title>Document</title>
+</head>
+<!-- HTML file, included Bootstrap -->
+<body>
+<div class="container">
+    <h1>designer for Mobile</h1>
+    <p>Trying out <code>dragula.js</code>
+    <div class="left">
+        <div id="drag-elements">
+            <div>Element 1</div>
+            <div>Element 2</div>
+            <div>Element 3</div>
+        </div>
+
+        <div id="drop-target">
+        </div>
+    </div>
+    <div class="right">
+        <div id="display">Display</div>
+    </div>
+</div>
+
+
+
+</body>
+<script src="https://bevacqua.github.io/dragula/dist/dragula.js" charset="UTF-8"></script>
+<script>
+    function $(id) {
+        return document.getElementById(id);
+    }
+
+    dragula([$('drag-elements'), $('drop-target')], {
+        revertOnSpill: true
+    }).on('drop', function (el) {
+        if ($('drop-target').children.length > 0) {
+            $('display').innerHTML = $('drop-target').innerHTML;
+        } else {
+            $('display').innerHTML = "Display";
+        }
+
+    });
+
+</script>
+</html>
