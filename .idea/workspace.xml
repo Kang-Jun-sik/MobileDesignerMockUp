@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="970317a3-af34-401c-b63b-abd17733b8a7" name="Default Changelist" comment="" />
+    <list default="true" id="970317a3-af34-401c-b63b-abd17733b8a7" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/image/dot.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sampleLayout.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sampleLayout.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -10,12 +15,17 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="CSS File" />
+        <option value="tsconfig.json" />
         <option value="HTML File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1fO4tBjy43bSMcZcST1srIKbIR7" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -24,8 +34,13 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/image" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\user\Desktop\drag\image" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -37,7 +52,7 @@
       <updated>1596076017223</updated>
       <workItem from="1596076018315" duration="10927000" />
       <workItem from="1596092059042" duration="7143000" />
-      <workItem from="1596153111333" duration="867000" />
+      <workItem from="1596153111333" duration="9013000" />
     </task>
     <servers />
   </component>
@@ -45,14 +60,27 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="2695" y="209" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1596154650191">
+    <state x="2497" y="87" key="CommitChangelistDialog2" timestamp="1596168625218">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="2695" y="209" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1596154650191" />
-    <state x="1934" y="0" width="1441" height="999" maximized="true" key="dock-window-1" timestamp="1596086511223">
+    <state x="2497" y="87" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1596168625218" />
+    <state x="2758" y="417" key="Github.ShareDialog" timestamp="1596154952581">
       <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2758" y="417" key="Github.ShareDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1596154952581" />
+    <state x="2725" y="224" key="Github.UntrackedFilesDialog" timestamp="1596154957201">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2725" y="224" key="Github.UntrackedFilesDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1596154957201" />
+    <state x="2695" y="209" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1596156132546">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2695" y="209" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1596156132546" />
+    <state x="426" y="108" width="1431" height="798" key="dock-window-1" timestamp="1596157984347">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="1934" y="0" width="1441" height="999" maximized="true" key="dock-window-1/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1596086511223" />
+    <state x="426" y="108" width="1431" height="798" key="dock-window-1/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1596157984347" />
     <state x="1920" y="0" width="1441" height="999" maximized="true" key="dock-window-2" timestamp="1596086759535">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>

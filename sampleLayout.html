@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="sampleLayout.css">
+</head>
+<body>
+<div class="wrapper">
+
+    <div class="designerWrapper">
+        <div class="phone view_2" id="phone_1" style="width: 360px; height: 640px;">
+            <div class="drop-target"></div>
+            <div class="drop-target"></div>
+            <div class="drop-target"></div>
+            <div class="drop-target"></div>
+        </div>
+    </div>
+
+    <div class="box b">
+        <div class="controlList">
+            <div id="drag-elements">
+                <div>Control1</div>
+                <div>Control2</div>
+                <div>Control3</div>
+                <div>Control4</div>
+                <div>Control5</div>
+                <div>Control6</div>
+                <div>Control7</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="box a">
+        <div class="phones">
+            <button value="1">iPhone 6</button>
+            <button value="2">Samsung Galaxy Note</button>
+            <button value="3">Microsoft Lumia 1020</button>
+            <button value="4">HTC One</button>
+            <button value="5">iPad Mini</button>
+        </div>
+    </div>
+</div>
+</body>
+
+<script src="https://bevacqua.github.io/dragula/dist/dragula.js" charset="UTF-8"></script>
+<script>
+
+    //폰 사이즈 조절 로직
+    document.querySelector(".phones").addEventListener("click", function (evt) {
+        var phone = document.getElementById("phone_1");
+        if (evt.target.value == 1) {
+            // iphone 6
+            width = 375;
+            height = 667;
+        }
+
+        if (evt.target.value == 2) {
+            // samsung
+            width = 400;
+            height = 640;
+        }
+
+        if (evt.target.value == 3) {
+            // microsoft
+            width = 320;
+            height = 480;
+        }
+
+        if (evt.target.value == 4) {
+            // htc
+            width = 360;
+            height = 640;
+        }
+
+        if (evt.target.value == 5) {
+            // ipad mini
+            width = 768;
+            height = 1024;
+        }
+
+        phone.style.width = width + "px";
+        phone.style.height = height + "px";
+
+    });
+
+    //dragula 로직
+    dragula(
+        [document.querySelector('#drag-elements')].concat(
+            Array.from(document.querySelectorAll('.drop-target'))
+        ), {
+            revertOnSpill: true
+        }).on('drop', function (el) {
+        /*
+        if (CN('.drop-target').children.length > 0) {
+            $('display').innerHTML = CN('.drop-target').innerHTML;
+        } else {
+            $('display').innerHTML = "Display";
+        }
+        */
+    });
+</script>
+</html>
