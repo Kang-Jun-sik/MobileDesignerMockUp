@@ -13,7 +13,6 @@
             <div class="drop-target"></div>
             <div class="drop-target"></div>
             <div class="drop-target"></div>
-            <div class="drop-target"></div>
         </div>
     </div>
 
@@ -86,18 +85,11 @@
 
     //dragula 로직
     dragula(
-        [document.querySelector('#drag-elements')].concat(
-            Array.from(document.querySelectorAll('.drop-target'))
-        ), {
-            revertOnSpill: true
+        [document.querySelector('#drag-elements')].concat(Array.from(document.querySelectorAll('.drop-target'))), {
+            revertOnSpill: true,
+            accept:false
         }).on('drop', function (el) {
-        /*
-        if (CN('.drop-target').children.length > 0) {
-            $('display').innerHTML = CN('.drop-target').innerHTML;
-        } else {
-            $('display').innerHTML = "Display";
-        }
-        */
+
     });
 </script>
 </html>
