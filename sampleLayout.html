@@ -91,9 +91,14 @@
             copy: function (el, source) {
                 return source.id === 'drag-elements';
             },
+            accepts: function (el, target, source, sibling) {
+                if (target.className == 'drop-target')
+                    return true; // elements can be dropped in any of the `containers` by default
+                return false;
+            },
             copySortSource: false,
         }).on('drop', function (el) {
-
+        //drop 이벤트 작성
     });
 </script>
 </html>
