@@ -84,10 +84,14 @@
     });
 
     //dragula 로직
+    //dragula API : https://github.com/bevacqua/dragula
     dragula(
         [document.querySelector('#drag-elements')].concat(Array.from(document.querySelectorAll('.drop-target'))), {
             revertOnSpill: true,
-            accept:false
+            copy: function (el, source) {
+                return source.id === 'drag-elements';
+            },
+            copySortSource: false,
         }).on('drop', function (el) {
 
     });
