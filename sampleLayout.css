@@ -114,6 +114,7 @@ body {
     display: block;
     text-align: center;
 }
+
 .drop-target > div {
     transition: all .5s;
     text-align: center;
@@ -126,40 +127,102 @@ body {
     background: darkgray;
     transition: all .5s ease;
 }
+
 .drop-target > div:active {
     -webkit-animation: wiggle 0.3s 0s infinite ease-in;
     animation: wiggle 0.3s 0s infinite ease-in;
     opacity: .6;
     border: 2px solid #000;
 }
-@media(max-width:992px){
-    .wrapper{
-        width:100%;
+
+@media (max-width: 992px) {
+    .wrapper {
+        width: 100%;
     }
 }
+
 .panel-heading {
     padding: 0;
-    border:0;
+    border: 0;
 }
-.panel-title>a, .panel-title>a:active{
-    display:block;
-    padding:15px;
-    color:#555;
-    font-size:16px;
-    font-weight:bold;
-    text-transform:uppercase;
-    letter-spacing:1px;
-    word-spacing:3px;
-    text-decoration:none;
+
+.panel-title > a, .panel-title > a:active {
+    display: block;
+    padding: 15px;
+    color: #555;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    word-spacing: 3px;
+    text-decoration: none;
 }
-.panel-heading  a:before {
+
+.panel-heading a:before {
     font-family: 'Glyphicons Halflings';
     content: "\e114";
     float: right;
     transition: all 0.5s;
 }
+
 .panel-heading.active a:before {
     -webkit-transform: rotate(180deg);
     -moz-transform: rotate(180deg);
     transform: rotate(180deg);
+}
+
+@-webkit-keyframes wiggle {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    25% {
+        -webkit-transform: rotate(2deg);
+    }
+    75% {
+        -webkit-transform: rotate(-2deg);
+    }
+    100% {
+        -webkit-transform: rotate(0deg);
+    }
+}
+
+@keyframes wiggle {
+    0% {
+        transform: rotate(-2deg);
+    }
+    25% {
+        transform: rotate(2deg);
+    }
+    75% {
+        transform: rotate(-2deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+.gu-mirror {
+    position: fixed !important;
+    margin: 0 !important;
+    z-index: 9999 !important;
+    padding: 1em;
+}
+.gu-hide {
+    display: none !important;
+}
+.gu-unselectable {
+    -webkit-user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+    user-select: none !important;
+}
+.gu-transit {
+    opacity: 0.5;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+    filter: alpha(opacity=50);
+}
+.gu-mirror {
+    opacity: 0.5;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+    filter: alpha(opacity=50);
 }
