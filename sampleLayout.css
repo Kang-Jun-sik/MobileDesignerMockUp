@@ -1,5 +1,4 @@
 body {
-    margin: 40px;
     background-image: url("image/dot.png");
 }
 
@@ -8,6 +7,7 @@ body {
 }
 
 .wrapper {
+    margin: 40px;
     display: grid;
     grid-gap: 10px;
     grid-template-columns: minmax(200px, 1fr) 340px 300px;
