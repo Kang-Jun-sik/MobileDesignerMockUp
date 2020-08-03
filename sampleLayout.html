@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="sampleLayout.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
 </head>
 <body>
 <div class="wrapper">
@@ -17,14 +18,68 @@
 
     <div class="box b">
         <div class="controlList">
-            <div id="drag-elements">
-                <div>Control1</div>
-                <div>Control2</div>
-                <div>Control3</div>
-                <div>Control4</div>
-                <div>Control5</div>
-                <div>Control6</div>
-                <div>Control7</div>
+            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                <div class="panel panel-default">
+                    <div class="panel-heading active" role="tab" id="headingOne">
+                        <h4 class="panel-title">
+                            <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne"
+                               aria-expanded="true" aria-controls="collapseOne">
+                                #Condition Panel
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                        <div class="panel-body">
+                            <div id="drag-elements">
+                                <div>버튼</div>
+                                <div>체크박스</div>
+                                <div>텍스트박스</div>
+                                <div>코드피커</div>
+                                <div>드롭다운리스트</div>
+                                <div>스프리트버튼</div>
+                                <div>콤보박스</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingTwo">
+                        <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
+                               href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                #Container Panel
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                        <div class="panel-body">
+                            <div id="drag-container">
+                                <div>폼패널</div>
+                                <div>그리드</div>
+                                <div>피벗그리드</div>
+                                <div>카드리스트</div>
+                                <div>달력</div>
+                                <div>차트</div>
+                                <div>트리뷰</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingThree">
+                        <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
+                               href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                #ETC
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                        <div class="panel-body">
+                            item3
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -40,10 +95,10 @@
     </div>
 </div>
 </body>
-
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" charset="UTF-8"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" charset="UTF-8"></script>
 <script src="https://bevacqua.github.io/dragula/dist/dragula.js" charset="UTF-8"></script>
 <script>
-
     //폰 사이즈 조절 로직
     document.querySelector(".phones").addEventListener("click", function (evt) {
         var phone = document.getElementById("phone_1");
@@ -82,16 +137,26 @@
 
     });
 
+    // 아코디언 자동 접히기 방지
+    $('.collapse').collapse({ toggle:false });
+    // 아코디언 collapse event
+    $('.panel-collapse').on('show.bs.collapse', function () {
+        $(this).siblings('.panel-heading').addClass('active');
+    });
+    $('.panel-collapse').on('hide.bs.collapse', function () {
+        $(this).siblings('.panel-heading').removeClass('active');
+    });
+
     //dragula 로직
     //dragula API : https://github.com/bevacqua/dragula
     dragula(
-        [document.querySelector('#drag-elements')].concat(Array.from(document.querySelectorAll('.drop-target'))), {
+        [document.querySelector('#drag-elements'), document.querySelector('#drag-container')].concat(Array.from(document.querySelectorAll('.drop-target'))), {
             revertOnSpill: true,
             copy: function (el, source) {
                 return source.id === 'drag-elements';
             },
             accepts: function (el, target, source, sibling) {
-                if (target.className == 'drop-target')
+                if (target.className === 'drop-target')
                     return true; // elements can be dropped in any of the `containers` by default
                 return false;
             },
