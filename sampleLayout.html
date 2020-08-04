@@ -33,13 +33,13 @@
                     <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
                         <div class="panel-body">
                             <div id="drag-elements">
-                                <div>버튼</div>
-                                <div>체크박스</div>
-                                <div>텍스트박스</div>
-                                <div>코드피커</div>
-                                <div>드롭다운리스트</div>
-                                <div>스프리트버튼</div>
-                                <div>콤보박스</div>
+                                <div class="condition">버튼</div>
+                                <div class="condition">체크박스</div>
+                                <div class="condition">텍스트박스</div>
+                                <div class="condition">코드피커</div>
+                                <div class="condition">드롭다운리스트</div>
+                                <div class="condition">스프리트버튼</div>
+                                <div class="condition">콤보박스</div>
                             </div>
                         </div>
                     </div>
@@ -151,8 +151,8 @@
 
     //dragula 로직
     //dragula API : https://github.com/bevacqua/dragula
-    dragula(
-        [document.querySelector('#drag-elements'), document.querySelector('#drag-container')].concat(Array.from(document.querySelectorAll('.drop-target'))), {
+    var drake1 = dragula(
+        {
             revertOnSpill: true,
             copy: function (el, source) {
                 return source.id === 'drag-elements' || source.id === 'drag-container';
@@ -164,11 +164,21 @@
             },
             copySortSource: false,
         }).on('drop', function (el) {
-        //drop 이벤트 작성
     });
+    drake1.containers.push(document.querySelector('#drag-elements'));
+    drake1.containers.push(document.querySelector('#drag-container'));
+    Array.from(document.querySelectorAll('.drop-target')).forEach(function (item){
+        drake1.containers.push(item);
+    })
 
-    dragula(
-        [document.querySelector('#phone-container')]
+    var drake2 = dragula(
+        [document.querySelector('#phone-container')], {
+            moves: function (el, container, handle){
+                return handle.className === 'drop-target';
+            }
+        }
     );
+
+
 </script>
 </html>
