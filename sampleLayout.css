@@ -4,6 +4,25 @@ body {
 
 .designerWrapper {
     border-style: dashed;
+    grid-template-columns: minmax(200px, 1fr) 440px;
+    margin: 40px;
+    display: grid;
+    grid-gap: 10px;
+}
+.designerWrapper2{
+    display: grid;
+    grid-template-rows: repeat(2, 500px);
+    /*background: lightblue;*/
+}
+
+.designerWrapper2 .layout2 {
+    margin: 10px;
+    border-style: dashed;
+}
+
+.designerWrapper2 .layout3 {
+    margin: 10px;
+    border-style: dashed;
 }
 
 .wrapper {
@@ -33,6 +52,39 @@ body {
     overflow: hidden;
     -webkit-transition: all 0.5s ease;
     transition: all 0.5s ease;
+    -webkit-animation: fadein 2s;
+    -moz-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
+    -ms-animation: fadein 2s; /* Firefox < 16 */
+    -o-animation: fadein 2s; /* Internet Explorer */
+    animation: fadein 2s; /* Opera < 12.1 */
+}
+
+.phone2{
+    display: inline-flex;
+    border: 40px solid #121212;
+    border-width: 55px 7px;
+    border-radius: 40px;
+    margin: 10px 10px 10px 10px;
+    overflow: hidden;
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    -webkit-animation: fadein 2s;
+    -moz-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
+    -ms-animation: fadein 2s; /* Firefox < 16 */
+    -o-animation: fadein 2s; /* Internet Explorer */
+    animation: fadein 2s; /* Opera < 12.1 */
+}
+
+.phone3{
+    display: inline-flex;
+    border: 40px solid #121212;
+    border-width: 55px 7px;
+    border-radius: 40px;
+    margin: 10px 10px 10px 10px;
+    overflow: hidden;
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    -webkit-animation: fadein 2s;
     -webkit-animation: fadein 2s;
     -moz-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
     -ms-animation: fadein 2s; /* Firefox < 16 */
@@ -175,6 +227,18 @@ body {
     text-align: center;
 }
 
+.drop-target {
+    border: 4px dashed red;
+    border-radius: 5px;
+    min-height: 150px;
+    max-height: 330px;
+    margin: 0 auto;
+    margin-top: 10px;
+    padding: 5px;
+    display: block;
+    text-align: center;
+}
+
 .drop-target > div {
     transition: all .5s;
     text-align: center;
@@ -186,6 +250,19 @@ body {
     border: 2px solid skyblue;
     background: darkgray;
     transition: all .5s ease;
+}
+
+.drop-target .condition_panel {
+    border: 4px dashed blue;
+    background: transparent;
+    border-radius: 5px;
+    min-height: 100px;
+    min-width: 300px;
+    margin: 0 auto;
+    margin-top: 0px;
+    padding: 5px;
+    display: block;
+    text-align: center;
 }
 
 .drop-target > div:active {

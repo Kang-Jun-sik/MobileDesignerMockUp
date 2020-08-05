@@ -16,6 +16,23 @@
                 <div class="drop-target"></div>
             </div>
         </div>
+        <div class="designerWrapper2">
+            <div class="layout2">
+                <div class="phone2" id="phone_2" style="width: 300px; height: 450px;">
+                    <div id="phone-container2">
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="layout3">
+                <div class="phone3" id="phone_3" style="width: 300px; height: 450px;">
+                    <div id="phone-container3">
+
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div class="box b">
@@ -30,7 +47,8 @@
                             </a>
                         </h4>
                     </div>
-                    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel"
+                         aria-labelledby="headingOne">
                         <div class="panel-body">
                             <div id="drag-elements">
                                 <div class="condition">버튼</div>
@@ -40,6 +58,7 @@
                                 <div class="condition">드롭다운리스트</div>
                                 <div class="condition">스프리트버튼</div>
                                 <div class="condition">콤보박스</div>
+                                <div class="condition_panel">패널</div>
                             </div>
                         </div>
                     </div>
@@ -76,7 +95,8 @@
                             </a>
                         </h4>
                     </div>
-                    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel"
+                         aria-labelledby="headingThree">
                         <div class="panel-body">
                             item3
                         </div>
@@ -140,7 +160,7 @@
     });
 
     // 아코디언 자동 접히기 방지
-    $('.collapse').collapse({ toggle:false });
+    $('.collapse').collapse({toggle: false});
     // 아코디언 collapse event
     $('.panel-collapse').on('show.bs.collapse', function () {
         $(this).siblings('.panel-heading').addClass('active');
@@ -164,16 +184,17 @@
             },
             copySortSource: false,
         }).on('drop', function (el) {
+
     });
     drake1.containers.push(document.querySelector('#drag-elements'));
     drake1.containers.push(document.querySelector('#drag-container'));
-    Array.from(document.querySelectorAll('.drop-target')).forEach(function (item){
+    Array.from(document.querySelectorAll('.drop-target')).forEach(function (item) {
         drake1.containers.push(item);
     })
 
     var drake2 = dragula(
         [document.querySelector('#phone-container')], {
-            moves: function (el, container, handle){
+            moves: function (el, container, handle) {
                 return handle.className === 'drop-target';
             }
         }
