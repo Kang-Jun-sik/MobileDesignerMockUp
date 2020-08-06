@@ -233,8 +233,7 @@ body {
     border-radius: 5px;
     min-height: 150px;
     max-height: 330px;
-    margin: 0 auto;
-    margin-top: 10px;
+    margin: 10px auto;
     padding: 5px;
     display: block;
     text-align: center;
@@ -253,8 +252,8 @@ body {
     transition: all .5s ease;
 }
 
-.drop-target .condition_panel {
-    border: 4px dashed blue;
+.phone .condition_panel {
+    border: 3px dashed #999;
     background: transparent;
     border-radius: 5px;
     min-height: 100px;
@@ -264,6 +263,38 @@ body {
     padding: 5px;
     display: block;
     text-align: center;
+}
+
+.phone .textBox{
+    word-break: break-word;
+    color: #000000;
+    min-height: 27px;
+    border: 1px solid #999;
+    padding: 3px 0 0 5px;
+    position: relative;
+    display: block;
+    width: 200px;
+    height: 32px;
+    background-color: #FFFFFF;
+    border-radius: 0px;
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.3);
+}
+
+.phone .button{
+    width: 60px;
+    height: 32px;
+    border-radius: 2px;
+    border: 1px solid #a6a6a6;
+    background: linear-gradient(#fff, #f0f0f0);
+    color: #000;
+    font-weight: 400;
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    vertical-align: top;
+    letter-spacing: -0.5px;
+    padding: 5px 9px;
+    cursor: default;
 }
 
 .drop-target > div:active {

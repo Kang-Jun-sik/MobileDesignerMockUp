@@ -50,8 +50,8 @@
                         <div class="panel-body">
                             <div id="drag-elements">
                                 <div class="button">버튼</div>
-                                <div class="checkBox">체크박스</div>
                                 <div class="textBox">텍스트박스</div>
+                                <div class="checkBox">체크박스</div>
                                 <div class="codePicker">코드피커</div>
                                 <div class="dropdownList">드롭다운리스트</div>
                                 <div class="splitButton">스프리트버튼</div>
@@ -207,9 +207,10 @@
                 return source.id === 'drag-elements' || source.id === 'drag-container';
             },
             accepts: function (el, target, source, sibling) {
-                if (target.className === 'drop-target')
-                    return true; // elements can be dropped in any of the `containers` by default
-                return false;
+                // if (target.className === 'drop-target')
+                //     return true; // elements can be dropped in any of the `containers` by default
+                // return false;
+                return true
             },
             copySortSource: false,
         }).on('drop', function (el) {
@@ -220,6 +221,7 @@
     Array.from(document.querySelectorAll('.drop-target')).forEach(function (item) {
         drake1.containers.push(item);
     })
+    drake1.containers.push(document.querySelector('#phone_1'));
 
     var drake2 = dragula(
         [document.querySelector('#phone-container')], {
