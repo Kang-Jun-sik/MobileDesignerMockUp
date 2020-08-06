@@ -9,32 +9,30 @@
 <body>
 <div class="wrapper">
     <div class="designerWrapper">
-        <div class="phone view_2" id="phone_1" style="width: 360px; height: 640px;">
-            <div id="phone-container">
-                <div class="drop-target"></div>
-                <div class="drop-target"></div>
-                <div class="drop-target"></div>
+        <div class="main_area">
+            <div class="phone view_2 large" id="phone_1" style="width: 1025px; height: 1024px;">
+                <div id="phone-container">
+                    <div class="drop-target"></div>
+                    <div class="drop-target"></div>
+                    <div class="drop-target"></div>
+                </div>
             </div>
         </div>
         <div class="designerWrapper2">
             <div class="layout2">
-                <div class="phone2" id="phone_2" style="width: 300px; height: 450px;">
+                <div class="phone2 small" id="phone_2" style="width: 200px; height: 380px;">
                     <div id="phone-container2">
-
                     </div>
                 </div>
-
             </div>
             <div class="layout3">
-                <div class="phone3" id="phone_3" style="width: 300px; height: 450px;">
+                <div class="phone3 medium" id="phone_3" style="width: 310px; height: 500px;">
                     <div id="phone-container3">
-
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
     <div class="box b">
         <div class="controlList">
             <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
@@ -51,14 +49,13 @@
                          aria-labelledby="headingOne">
                         <div class="panel-body">
                             <div id="drag-elements">
-                                <div class="condition">버튼</div>
-                                <div class="condition">체크박스</div>
-                                <div class="condition">텍스트박스</div>
-                                <div class="condition">코드피커</div>
-                                <div class="condition">드롭다운리스트</div>
-                                <div class="condition">스프리트버튼</div>
-                                <div class="condition">콤보박스</div>
-                                <div class="condition_panel">패널</div>
+                                <div class="button">버튼</div>
+                                <div class="checkBox">체크박스</div>
+                                <div class="textBox">텍스트박스</div>
+                                <div class="codePicker">코드피커</div>
+                                <div class="dropdownList">드롭다운리스트</div>
+                                <div class="splitButton">스프리트버튼</div>
+                                <div class="ComboBox">콤보박스</div>
                             </div>
                         </div>
                     </div>
@@ -75,10 +72,10 @@
                     <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
                         <div class="panel-body">
                             <div id="drag-container">
-                                <div>폼패널</div>
-                                <div>그리드</div>
-                                <div>피벗그리드</div>
-                                <div>카드리스트</div>
+                                <div class="condition_panel">패널</div>
+                                <div class="form_panel">폼패널</div>
+                                <div class="grid">그리드</div>
+                                <div class="cardlist">카드리스트</div>
                                 <div>달력</div>
                                 <div>차트</div>
                                 <div>트리뷰</div>
@@ -105,59 +102,91 @@
             </div>
         </div>
     </div>
-
-    <div class="box a">
-        <div class="phones">
-            <button value="1">iPhone 6</button>
-            <button value="2">Samsung Galaxy Note</button>
-            <button value="3">Microsoft Lumia 1020</button>
-            <button value="4">HTC One</button>
-            <button value="5">iPad Mini</button>
-        </div>
-    </div>
 </div>
 </body>
 <script src="https://code.jquery.com/jquery-2.2.4.min.js" charset="UTF-8"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" charset="UTF-8"></script>
 <script src="https://bevacqua.github.io/dragula/dist/dragula.js" charset="UTF-8"></script>
 <script>
-    //폰 사이즈 조절 로직
-    document.querySelector(".phones").addEventListener("click", function (evt) {
-        var phone = document.getElementById("phone_1");
-        if (evt.target.value == 1) {
-            // iphone 6
-            width = 375;
-            height = 667;
+    const size = {
+        'small': {
+            'width': '375px',
+            'height': '667px',
+            'preWidth': '200px',
+            'preHeight': '380px'
+        },
+        'medium': {
+            'width': '768px',
+            'height': '1024px',
+            'preWidth': '310px',
+            'preHeight': '500px'
+        },
+        'large': {
+            'width': '1025px',
+            'height': '1024px',
+            'preWidth': '340px',
+            'preHeight': '500px'
         }
+    }
+    const phone1 = document.querySelector('#phone_1'),
+        phone2 = document.querySelector('#phone_2'),
+        phone3 = document.querySelector('#phone_3')
 
-        if (evt.target.value == 2) {
-            // samsung
-            width = 400;
-            height = 640;
+    document.querySelector('#phone_2').addEventListener('click', function(evt) {
+        let phone = [phone1, phone2];
+        let phoneClass = {
+            'phone_1': '',
+            'phone_2': ''
         }
+        phone.forEach(item => {
+            let className = item.classList;
+            if (className.contains('small')) {
+                phoneClass[item.id] = 'small';
+            } else if (className.contains('medium')){
+                phoneClass[item.id] = 'medium';
+            } else if (className.contains('large')){
+                phoneClass[item.id] = 'large';
+            }
+        })
 
-        if (evt.target.value == 3) {
-            // microsoft
-            width = 320;
-            height = 480;
+        phone1.style.width = size[phoneClass.phone_2].width;
+        phone1.style.height = size[phoneClass.phone_2].height;
+        phone2.style.width = size[phoneClass.phone_1].preWidth;
+        phone2.style.height = size[phoneClass.phone_1].preHeight;
+
+        phone1.classList.remove(phoneClass.phone_1);
+        phone1.classList.add(phoneClass.phone_2);
+        phone2.classList.remove(phoneClass.phone_2);
+        phone2.classList.add(phoneClass.phone_1);
+    })
+
+    document.querySelector('#phone_3').addEventListener('click', function(evt) {
+        let phone = [phone1, phone3];
+        let phoneClass = {
+            'phone_1': '',
+            'phone_3': ''
         }
+        phone.forEach(item => {
+            let className = item.classList;
+            if (className.contains('small')) {
+                phoneClass[item.id] = 'small';
+            } else if (className.contains('medium')){
+                phoneClass[item.id] = 'medium';
+            } else if (className.contains('large')){
+                phoneClass[item.id] = 'large';
+            }
+        })
 
-        if (evt.target.value == 4) {
-            // htc
-            width = 360;
-            height = 640;
-        }
+        phone1.style.width = size[phoneClass.phone_3].width;
+        phone1.style.height = size[phoneClass.phone_3].height;
+        phone3.style.width = size[phoneClass.phone_1].preWidth;
+        phone3.style.height = size[phoneClass.phone_1].preHeight;
 
-        if (evt.target.value == 5) {
-            // ipad mini
-            width = 768;
-            height = 1024;
-        }
-
-        phone.style.width = width + "px";
-        phone.style.height = height + "px";
-
-    });
+        phone1.classList.remove(phoneClass.phone_1);
+        phone1.classList.add(phoneClass.phone_3);
+        phone3.classList.remove(phoneClass.phone_3);
+        phone3.classList.add(phoneClass.phone_1);
+    })
 
     // 아코디언 자동 접히기 방지
     $('.collapse').collapse({toggle: false});
