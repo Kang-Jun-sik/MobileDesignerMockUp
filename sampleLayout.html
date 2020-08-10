@@ -105,8 +105,9 @@
     </div>
 </div>
 </body>
-<script src="https://code.jquery.com/jquery-2.2.4.min.js" charset="UTF-8"></script>
 
+<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" charset="UTF-8"></script>
 <script src="https://bevacqua.github.io/dragula/dist/dragula.js" charset="UTF-8"></script>
 <script>
@@ -220,6 +221,8 @@
             console.log('drag Event : ' + el.className);
         })
         .on('drop', function (el) {
+            el.classList.add(uuidv4()); //=> 밑에 함수 태울때 re-size className 중복시 리사이즈 핸들이 작동이 안되어 고유 아이디 부여
+            canResizeable(el);
             console.log('drop Event : ' + el.innerHTML);
         })
         .on('over', function (el) {
@@ -256,5 +259,43 @@
         });
     drake2.containers.push(document.querySelector('#phone-container'));
 
+
+    function uuidv4() {
+        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+            var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+            return v.toString(16);
+        });
+    }
+
+    function canResizeable(el) {
+        var clsName = "." + el.classList[el.classList.length - 1];
+        var storeContainer = [];
+        $(clsName).resizable(
+            {
+                delay: 0,
+                resize: function (e, ui) {
+                    e.stopPropagation();
+                },
+                start: function (e, ui) {
+                    //dragula 비활성화
+                    // drake1.destory();
+                    e.stopPropagation();
+                },
+                stop: function (e, ui) {
+                    //dragula 활성화
+                    e.stopPropagation();
+                },
+            }
+        );
+
+        /*
+            {
+              //minWidth: 100,
+              //maxWidth: 600,
+              handles: "e , s"
+            })
+            */
+
+    }
 </script>
 </html>
