@@ -134,7 +134,7 @@
         phone2 = document.querySelector('#phone_2'),
         phone3 = document.querySelector('#phone_3')
 
-    document.querySelector('#phone_2').addEventListener('click', function(evt) {
+    document.querySelector('#phone_2').addEventListener('click', function (evt) {
         let phone = [phone1, phone2];
         let phoneClass = {
             'phone_1': '',
@@ -144,9 +144,9 @@
             let className = item.classList;
             if (className.contains('small')) {
                 phoneClass[item.id] = 'small';
-            } else if (className.contains('medium')){
+            } else if (className.contains('medium')) {
                 phoneClass[item.id] = 'medium';
-            } else if (className.contains('large')){
+            } else if (className.contains('large')) {
                 phoneClass[item.id] = 'large';
             }
         })
@@ -162,7 +162,7 @@
         phone2.classList.add(phoneClass.phone_1);
     })
 
-    document.querySelector('#phone_3').addEventListener('click', function(evt) {
+    document.querySelector('#phone_3').addEventListener('click', function (evt) {
         let phone = [phone1, phone3];
         let phoneClass = {
             'phone_1': '',
@@ -172,9 +172,9 @@
             let className = item.classList;
             if (className.contains('small')) {
                 phoneClass[item.id] = 'small';
-            } else if (className.contains('medium')){
+            } else if (className.contains('medium')) {
                 phoneClass[item.id] = 'medium';
-            } else if (className.contains('large')){
+            } else if (className.contains('large')) {
                 phoneClass[item.id] = 'large';
             }
         })
@@ -215,9 +215,20 @@
                 return true
             },
             copySortSource: false,
-        }).on('drop', function (el) {
+        })
+        .on('drag', function (el) {
+            console.log('drag Event : ' + el.className);
+        })
+        .on('drop', function (el) {
+            console.log('drop Event : ' + el.innerHTML);
+        })
+        .on('over', function (el) {
+            console.log('over Event : ' + el.innerHTML);
+        })
+        .on('out', function (el) {
+            console.log('out Event : ' + el.innerHTML);
+        });
 
-    });
     drake1.containers.push(document.querySelector('#drag-elements'));
     drake1.containers.push(document.querySelector('#drag-container'));
     Array.from(document.querySelectorAll('.drop-target')).forEach(function (item) {
@@ -226,12 +237,24 @@
     drake1.containers.push(document.querySelector('#phone_1'));
 
     var drake2 = dragula(
-        [document.querySelector('#phone-container')], {
+        {
             moves: function (el, container, handle) {
                 return handle.className === 'drop-target';
             }
-        }
-    );
+        })
+        .on('drag', function (el) {
+            console.log('drag Event : ' + el.innerHTML);
+        })
+        .on('drop', function (el) {
+            console.log('drop Event : ' + el.innerHTML);
+        })
+        .on('over', function (el) {
+            console.log('over Event : ' + el.innerHTML);
+        })
+        .on('out', function (el) {
+            console.log('out Event : ' + el.innerHTML);
+        });
+    drake2.containers.push(document.querySelector('#phone-container'));
 
 </script>
 </html>
