@@ -111,8 +111,9 @@
     </div>
 </div>
 </body>
-<script src="https://code.jquery.com/jquery-2.2.4.min.js" charset="UTF-8"></script>
 
+<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" charset="UTF-8"></script>
 <script src="https://bevacqua.github.io/dragula/dist/dragula.js" charset="UTF-8"></script>
 <script>
@@ -212,7 +213,7 @@
 
     //dragula 로직
     //dragula API : https://github.com/bevacqua/dragula
-    const drake1 = dragula(
+    let drake1 = dragula(
         {
             revertOnSpill: true,
             copy: function (el, source) {
@@ -225,13 +226,27 @@
                     return false;
                 }
             },
-            copySortSource: false
-        }).on('drop', function(el, target, source, sibling) {
+            copySortSource: false,
+        })
+        .on('drag', function (el) {
+            console.log('drag Event : ' + el.className);
+        })
+        .on('drop', function (el, target) {
             if (el.classList.contains('checkBox')){
                 el.innerText = '';
             }
             copyControl(el, target);
+            //
+            el.classList.add(uuidv4()); //=> 밑에 함수 태울때 re-size className 중복시 리사이즈 핸들이 작동이 안되어 고유 아이디 부여
+            canResizeable(el);
+            console.log('drop Event : ' + el.innerHTML);
         })
+        .on('over', function (el) {
+            console.log('over Event : ' + el.innerHTML);
+        })
+        .on('out', function (el) {
+            console.log('out Event : ' + el.innerHTML);
+        });
 
     drake1.containers.push(document.querySelector('#drag-elements'));
     drake1.containers.push(document.querySelector('#drag-container'));
@@ -240,13 +255,24 @@
     })
     drake1.containers.push(document.querySelector('#phone_1'));
 
-    const drake2 = dragula(
-        [document.querySelector('#phone-container')], {
-            moves: function (el, container, handle) {
-                return handle.classList.contains('drop-target');
-            }
+    let drake2 = dragula({
+        moves: function (el, container, handle) {
+            return handle.classList.contains('drop-target');
         }
-    );
+    })
+    .on('drag', function (el) {
+        console.log('drag Event : ' + el.innerHTML);
+    })
+    .on('drop', function (el) {
+        console.log('drop Event : ' + el.innerHTML);
+    })
+    .on('over', function (el) {
+        console.log('over Event : ' + el.innerHTML);
+    })
+    .on('out', function (el) {
+        console.log('out Event : ' + el.innerHTML);
+    });
+    drake2.containers.push(document.querySelector('#phone-container'));
 
     const copyControl = function(el, target){
         console.log(el)
@@ -254,5 +280,44 @@
         phone3.innerHTML = phone1.innerHTML;
     }
 
+
+
+    function uuidv4() {
+        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+            var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+            return v.toString(16);
+        });
+    }
+
+    function canResizeable(el) {
+        var clsName = "." + el.classList[el.classList.length - 1];
+        var storeContainer = [];
+        $(clsName).resizable(
+            {
+                delay: 0,
+                resize: function (e, ui) {
+                    e.stopPropagation();
+                },
+                start: function (e, ui) {
+                    //dragula 비활성화
+                    // drake1.destory();
+                    e.stopPropagation();
+                },
+                stop: function (e, ui) {
+                    //dragula 활성화
+                    e.stopPropagation();
+                },
+            }
+        );
+
+        /*
+            {
+              //minWidth: 100,
+              //maxWidth: 600,
+              handles: "e , s"
+            })
+            */
+
+    }
 </script>
 </html>

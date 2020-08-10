@@ -23,7 +23,7 @@
   <component name="ChangeListManager">
     <list default="true" id="970317a3-af34-401c-b63b-abd17733b8a7" name="Default Changelist" comment="- css 수정">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sampleLayout.css" beforeDir="false" afterPath="$PROJECT_DIR$/sampleLayout.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sampleLayout.html" beforeDir="false" afterPath="$PROJECT_DIR$/sampleLayout.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,7 +78,8 @@
       <workItem from="1596602680960" duration="6912000" />
       <workItem from="1596672595912" duration="12610000" />
       <workItem from="1596772722047" duration="1386000" />
-      <workItem from="1596784400947" duration="2536000" />
+      <workItem from="1596784400947" duration="4009000" />
+      <workItem from="1597018257939" duration="5005000" />
     </task>
     <task id="LOCAL-00001" summary="- mobile layout sample 2 커밋">
       <created>1596168845443</created>
@@ -143,7 +144,14 @@
       <option name="project" value="LOCAL" />
       <updated>1596786650113</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="- css 수정">
+      <created>1596787697072</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1596787697072</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -166,22 +174,23 @@
     <MESSAGE value="- jQuery UI scale 샘플 로직 추가" />
     <MESSAGE value="- dragula 카피 로직 수정" />
     <MESSAGE value="- dragula 카피 로직 수정 2" />
-    <MESSAGE value="- css 수정" />
     <MESSAGE value="- sample 레이아웃" />
     <MESSAGE value="- 크기 줄여도 안깨지도록 수정" />
     <MESSAGE value="- drop-target css 속성 수정" />
-    <option name="LAST_COMMIT_MESSAGE" value="- drop-target css 속성 수정" />
+    <MESSAGE value="- css 수정" />
+    <option name="LAST_COMMIT_MESSAGE" value="- css 수정" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="2393" y="0" width="1223" height="1040" key="CommitChangelistDialog2" timestamp="1596787516691">
+    <state x="2393" y="0" width="1223" height="1040" key="CommitChangelistDialog2" timestamp="1597037649962">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="2393" y="0" width="1223" height="1040" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1596787516691" />
-    <state x="2104" y="86" width="1536" height="860" key="DiffContextDialog" timestamp="1596787495430">
-      <screen x="1920" y="0" width="1920" height="1040" />
+    <state x="473" y="0" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1597032289975" />
+    <state x="2393" y="0" width="1223" height="1040" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1597037649962" />
+    <state x="184" y="86" width="1536" height="860" key="DiffContextDialog" timestamp="1597032930643">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="184" y="86" width="1536" height="860" key="DiffContextDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1596688105475" />
-    <state x="2104" y="86" width="1536" height="860" key="DiffContextDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1596787495430" />
+    <state x="184" y="86" width="1536" height="860" key="DiffContextDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1597032930643" />
+    <state x="2104" y="86" width="1536" height="860" key="DiffContextDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1596787691304" />
     <state x="2660" y="275" key="FileChooserDialogImpl" timestamp="1596516457797">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
@@ -198,24 +207,24 @@
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2104" y="86" key="MergeDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1596515730415" />
-    <state x="2708" y="221" key="RollbackChangesDialog" timestamp="1596786069951">
+    <state x="2708" y="221" key="RollbackChangesDialog" timestamp="1597037235039">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="788" y="221" key="RollbackChangesDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1596688130067" />
-    <state x="2708" y="221" key="RollbackChangesDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1596786069951" />
-    <state x="2472" y="253" key="Vcs.Push.Dialog.v2" timestamp="1596786651474">
+    <state x="2708" y="221" key="RollbackChangesDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1597037235039" />
+    <state x="2472" y="253" key="Vcs.Push.Dialog.v2" timestamp="1596787704104">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1596185106460" />
-    <state x="2472" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1596786651474" />
+    <state x="2472" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1596787704104" />
     <state x="2695" y="209" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1596170163692">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2695" y="209" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1596170163692" />
-    <state x="775" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1596785711065">
+    <state x="775" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1597032292551">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="775" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1596785711065" />
+    <state x="775" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1597032292551" />
     <state x="2695" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1596704567789" />
     <state x="1920" y="0" width="1493" height="680" maximized="true" key="dock-window-1" timestamp="1596779187394">
       <screen x="1920" y="0" width="1920" height="1040" />

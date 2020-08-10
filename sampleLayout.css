@@ -271,7 +271,7 @@ body {
     opacity: 1;
     margin-bottom: 5px;
     padding: 5px;
-    display: block;
+    display: inline-block;
     text-align: center;
 }
 
@@ -383,6 +383,7 @@ body {
     transform: rotate(180deg);
 }
 
+/*
 @-webkit-keyframes wiggle {
     0% {
         -webkit-transform: rotate(0deg);
@@ -412,6 +413,7 @@ body {
         transform: rotate(0deg);
     }
 }
+ */
 
 .gu-mirror {
     position: fixed !important;
