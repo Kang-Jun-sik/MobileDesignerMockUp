@@ -51,7 +51,7 @@ body {
     border-width: 55px 7px;
     border-radius: 40px;
     margin: 10px 10px 10px 10px;
-    overflow: hidden;
+    overflow: auto;
     -webkit-transition: all 0.5s ease;
     transition: all 0.5s ease;
     -webkit-animation: fadein 2s;
@@ -67,7 +67,7 @@ body {
     border-width: 55px 7px;
     border-radius: 40px;
     margin: 30px auto 20px;
-    overflow: hidden;
+    overflow: auto;
     -webkit-transition: all 0.5s ease;
     transition: all 0.5s ease;
     -webkit-animation: fadein 2s;
@@ -83,7 +83,7 @@ body {
     border-width: 55px 7px;
     border-radius: 40px;
     margin: 30px auto 0px;
-    overflow: hidden;
+    overflow: auto;
     -webkit-transition: all 0.5s ease;
     transition: all 0.5s ease;
     -webkit-animation: fadein 2s;
@@ -225,25 +225,13 @@ body {
 
 .drop-target {
     position: relative;
-    border: 4px dashed red;
+    border: 4px dashed #5a5a5a;
     border-radius: 5px;
-    min-height: 120px;
-    margin: 0 auto;
-    margin-top: 10px;
-    padding: 5px;
-    display: inline-block;
-    overflow: auto;
-    text-align: center;
-}
-
-.drop-target {
-    border: 4px dashed red;
-    border-radius: 5px;
-    min-height: 150px;
-    max-height: 330px;
-    margin: 10px auto;
+    min-height: 200px;
+    margin: 5px auto;
     padding: 5px;
     display: block;
+    overflow: auto;
     text-align: center;
 }
 
@@ -258,6 +246,7 @@ body {
     border: 2px solid skyblue;
     background: darkgray;
     transition: all .5s ease;
+    opacity: 1;
 }
 
 .phone .condition_panel {
@@ -266,18 +255,31 @@ body {
     border-radius: 5px;
     min-height: 100px;
     min-width: 300px;
-    margin: 0 auto;
-    margin-top: 0px;
+    /*margin: 0 auto;*/
+    margin-bottom: 5px;
     padding: 5px;
     display: block;
     text-align: center;
 }
 
-#phone-container{
+.phone2 .condition_panel {
+    border: 3px dashed #999;
+    background: transparent;
+    border-radius: 5px;
+    min-height: 100px;
+    min-width: 100px;
+    opacity: 1;
+    margin-bottom: 5px;
+    padding: 5px;
+    display: block;
+    text-align: center;
+}
+
+#phone-container, #phone-container2, #phone-container3{
     overflow: auto;
 }
 
-.phone .textBox {
+.phone .textBox, .phone .codePicker, .phone .dropdownList {
     word-break: break-word;
     color: #000000;
     min-height: 27px;
@@ -307,6 +309,35 @@ body {
     letter-spacing: -0.5px;
     padding: 5px 9px;
     cursor: default;
+}
+
+.phone .splitButton {
+    width: 120px;
+    height: 32px;
+    border-radius: 2px;
+    border: 1px solid #a6a6a6;
+    background: linear-gradient(#fff, #f0f0f0);
+    color: #000;
+    font-weight: 400;
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    vertical-align: top;
+    letter-spacing: -0.5px;
+    padding: 5px 9px;
+    cursor: default;
+}
+
+.phone .checkBox {
+    content: '';
+    top: 25%;
+    border-radius: 0px;
+    border: 1px solid #bbbbbb;
+    width: 14px;
+    height: 14px;
+    background-color: #FFFFFF;
+    box-shadow: none;
+    box-sizing: border-box;
 }
 
 .drop-target > div:active {

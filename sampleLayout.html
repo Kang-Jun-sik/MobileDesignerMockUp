@@ -13,9 +13,9 @@
         <div class="main_area">
             <div class="phone view_2 large" id="phone_1" style="width: 1025px; height: 1024px;">
                 <div id="phone-container">
-                    <div class="drop-target"></div>
-                    <div class="drop-target"></div>
-                    <div class="drop-target"></div>
+                    <div class="drop-target first"></div>
+                    <div class="drop-target second"></div>
+                    <div class="drop-target third"></div>
                 </div>
             </div>
         </div>
@@ -23,12 +23,18 @@
             <div class="layout2">
                 <div class="phone2 small" id="phone_2" style="width: 200px; height: 380px;">
                     <div id="phone-container2">
+                        <div class="drop-target first"></div>
+                        <div class="drop-target second"></div>
+                        <div class="drop-target third"></div>
                     </div>
                 </div>
             </div>
             <div class="layout3">
                 <div class="phone3 medium" id="phone_3" style="width: 310px; height: 500px;">
                     <div id="phone-container3">
+                        <div class="drop-target first"></div>
+                        <div class="drop-target second"></div>
+                        <div class="drop-target third"></div>
                     </div>
                 </div>
             </div>
@@ -55,7 +61,7 @@
                                 <div class="checkBox">체크박스</div>
                                 <div class="codePicker">코드피커</div>
                                 <div class="dropdownList">드롭다운리스트</div>
-                                <div class="splitButton">스프리트버튼</div>
+                                <div class="splitButton">스플리트버튼</div>
                                 <div class="ComboBox">콤보박스</div>
                             </div>
                         </div>
@@ -110,6 +116,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" charset="UTF-8"></script>
 <script src="https://bevacqua.github.io/dragula/dist/dragula.js" charset="UTF-8"></script>
 <script>
+    // 스마트폰, 태플릿M, 태플릿L 실제 사이즈, 미리보기 사이즈 정의
     const size = {
         'small': {
             'width': '375px',
@@ -134,6 +141,7 @@
         phone2 = document.querySelector('#phone_2'),
         phone3 = document.querySelector('#phone_3')
 
+    // phone2 <-> phone1 (type change)
     document.querySelector('#phone_2').addEventListener('click', function(evt) {
         let phone = [phone1, phone2];
         let phoneClass = {
@@ -151,6 +159,7 @@
             }
         })
 
+        // phone의 size는 large, medium, small class로 구분
         phone1.style.width = size[phoneClass.phone_2].width;
         phone1.style.height = size[phoneClass.phone_2].height;
         phone2.style.width = size[phoneClass.phone_1].preWidth;
@@ -162,6 +171,7 @@
         phone2.classList.add(phoneClass.phone_1);
     })
 
+    // phone3 <-> phone1 (type change)
     document.querySelector('#phone_3').addEventListener('click', function(evt) {
         let phone = [phone1, phone3];
         let phoneClass = {
@@ -179,6 +189,7 @@
             }
         })
 
+        // phone의 size는 large, medium, small class로 구분
         phone1.style.width = size[phoneClass.phone_3].width;
         phone1.style.height = size[phoneClass.phone_3].height;
         phone3.style.width = size[phoneClass.phone_1].preWidth;
@@ -195,29 +206,33 @@
     // 아코디언 collapse event
     $('.panel-collapse').on('show.bs.collapse', function () {
         $(this).siblings('.panel-heading').addClass('active');
-    });
-    $('.panel-collapse').on('hide.bs.collapse', function () {
+    }).on('hide.bs.collapse', function () {
         $(this).siblings('.panel-heading').removeClass('active');
     });
 
     //dragula 로직
     //dragula API : https://github.com/bevacqua/dragula
-    var drake1 = dragula(
+    const drake1 = dragula(
         {
             revertOnSpill: true,
             copy: function (el, source) {
                 return source.id === 'drag-elements' || source.id === 'drag-container';
             },
             accepts: function (el, target, source, sibling) {
-                // if (target.className === 'drop-target')
-                //     return true; // elements can be dropped in any of the `containers` by default
-                // return false;
-                return true
+                if (target.closest('.phone')){
+                    return true;
+                } else {
+                    return false;
+                }
             },
-            copySortSource: false,
-        }).on('drop', function (el) {
+            copySortSource: false
+        }).on('drop', function(el, target, source, sibling) {
+            if (el.classList.contains('checkBox')){
+                el.innerText = '';
+            }
+            copyControl(el, target);
+        })
 
-    });
     drake1.containers.push(document.querySelector('#drag-elements'));
     drake1.containers.push(document.querySelector('#drag-container'));
     Array.from(document.querySelectorAll('.drop-target')).forEach(function (item) {
@@ -225,13 +240,19 @@
     })
     drake1.containers.push(document.querySelector('#phone_1'));
 
-    var drake2 = dragula(
+    const drake2 = dragula(
         [document.querySelector('#phone-container')], {
             moves: function (el, container, handle) {
-                return handle.className === 'drop-target';
+                return handle.classList.contains('drop-target');
             }
         }
     );
+
+    const copyControl = function(el, target){
+        console.log(el)
+        phone2.innerHTML = phone1.innerHTML;
+        phone3.innerHTML = phone1.innerHTML;
+    }
 
 </script>
 </html>
