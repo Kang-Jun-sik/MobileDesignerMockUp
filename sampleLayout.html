@@ -280,8 +280,6 @@
         phone3.innerHTML = phone1.innerHTML;
     }
 
-
-
     function uuidv4() {
         return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
             var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
@@ -290,20 +288,21 @@
     }
 
     function canResizeable(el) {
-        var clsName = "." + el.classList[el.classList.length - 1];
-        var storeContainer = [];
+        let clsName = "." + el.classList[el.classList.length - 1];
+        let storeContainer = [];
         $(clsName).resizable(
             {
                 delay: 0,
                 resize: function (e, ui) {
+                    console.log('resize', e, ui);
                     e.stopPropagation();
                 },
                 start: function (e, ui) {
-                    //dragula 비활성화
-                    // drake1.destory();
+                    console.log('start', e, ui);
                     e.stopPropagation();
                 },
                 stop: function (e, ui) {
+                    console.log('stop', e, ui);
                     //dragula 활성화
                     e.stopPropagation();
                 },
