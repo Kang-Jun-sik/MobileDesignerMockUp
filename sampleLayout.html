@@ -213,44 +213,41 @@
 
     //dragula 로직
     //dragula API : https://github.com/bevacqua/dragula
-    let drake1 = dragula(
-        {
-            revertOnSpill: true,
-            copy: function (el, source) {
-                return source.id === 'drag-elements' || source.id === 'drag-container';
-            },
-            accepts: function (el, target, source, sibling) {
-                if (target.closest('.phone')){
-                    return true;
-                } else {
-                    return false;
-                }
-            },
-            copySortSource: false,
-        })
-        .on('drag', function (el) {
-            console.log('drag Event : ' + el.className);
-        })
-        .on('drop', function (el, target) {
-            if (el.classList.contains('checkBox')){
-                el.innerText = '';
+    let drake1 = dragula({
+        revertOnSpill: true,
+        copy: function (el, source) {
+            return source.id === 'drag-elements' || source.id === 'drag-container';
+        },
+        accepts: function (el, target, source, sibling) {
+            if (target.closest('.phone') && !target.querySelector('.ui-resizable-resizing')){
+                return true;
+            } else {
+                return false;
             }
-            copyControl(el, target);
-            //
-            el.classList.add(uuidv4()); //=> 밑에 함수 태울때 re-size className 중복시 리사이즈 핸들이 작동이 안되어 고유 아이디 부여
-            canResizeable(el);
-            console.log('drop Event : ' + el.innerHTML);
-        })
-        .on('over', function (el) {
-            console.log('over Event : ' + el.innerHTML);
-        })
-        .on('out', function (el) {
-            console.log('out Event : ' + el.innerHTML);
-        });
-
+        },
+        copySortSource: false,
+    })
+    .on('drag', function (el) {
+        console.log('drag Event : ' + el.className);
+    })
+    .on('drop', function (el, target) {
+        if (el.classList.contains('checkBox')){
+            el.innerText = '';
+        }
+        copyControl();
+        el.classList.add(uuidv4()); //=> 밑에 함수 태울때 re-size className 중복시 리사이즈 핸들이 작동이 안되어 고유 아이디 부여
+        canResizeable(el);
+        console.log('drop Event : ' + el.innerHTML);
+    })
+    .on('over', function (el) {
+        console.log('over Event : ' + el.innerHTML);
+    })
+    .on('out', function (el) {
+        console.log('out Event : ' + el.innerHTML);
+    });
     drake1.containers.push(document.querySelector('#drag-elements'));
     drake1.containers.push(document.querySelector('#drag-container'));
-    Array.from(document.querySelectorAll('.drop-target')).forEach(function (item) {
+    Array.from(document.querySelectorAll('.drop-target')).forEach(function (item){
         drake1.containers.push(item);
     })
     drake1.containers.push(document.querySelector('#phone_1'));
@@ -274,49 +271,42 @@
     });
     drake2.containers.push(document.querySelector('#phone-container'));
 
-    const copyControl = function(el, target){
-        console.log(el)
+    const copyControl = function(){
         phone2.innerHTML = phone1.innerHTML;
         phone3.innerHTML = phone1.innerHTML;
     }
 
     function uuidv4() {
         return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
-            var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+            var r = Math.random() * 16 | 0, v = c === 'x' ? r : (r & 0x3 | 0x8);
             return v.toString(16);
         });
     }
 
     function canResizeable(el) {
         let clsName = "." + el.classList[el.classList.length - 1];
-        let storeContainer = [];
-        $(clsName).resizable(
-            {
-                delay: 0,
-                resize: function (e, ui) {
-                    console.log('resize', e, ui);
-                    e.stopPropagation();
-                },
-                start: function (e, ui) {
-                    console.log('start', e, ui);
-                    e.stopPropagation();
-                },
-                stop: function (e, ui) {
-                    console.log('stop', e, ui);
-                    //dragula 활성화
-                    e.stopPropagation();
-                },
-            }
-        );
+
+        $(clsName).resizable({
+            delay: 0,
+            resize: function (e, ui) {
+                e.stopPropagation();
+            },
+            start: function (e, ui) {
+                e.stopPropagation();
+            },
+            stop: function (e, ui) {
+                copyControl();
+                e.stopPropagation();
+            },
+        });
 
         /*
-            {
-              //minWidth: 100,
-              //maxWidth: 600,
-              handles: "e , s"
-            })
-            */
-
+        {
+          //minWidth: 100,
+          //maxWidth: 600,
+          handles: "e , s"
+        })
+        */
     }
 </script>
 </html>

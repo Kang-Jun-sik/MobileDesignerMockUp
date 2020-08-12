@@ -242,8 +242,8 @@ body {
     opacity: 1;
 }
 
-.phone .condition_panel {
-    border: 3px dashed #999;
+.phone .condition_panel, .phone2 .condition_panel, .phone3 .condition_panel {
+    border: 1px dashed #333;
     background: transparent;
     border-radius: 5px;
     min-height: 100px;
@@ -255,24 +255,24 @@ body {
     text-align: center;
 }
 
-.phone2 .condition_panel {
-    border: 3px dashed #999;
-    background: transparent;
-    border-radius: 5px;
-    min-height: 100px;
-    min-width: 100px;
-    opacity: 1;
-    margin-bottom: 5px;
-    padding: 5px;
-    display: inline-block;
-    text-align: center;
-}
+/*.phone2 .condition_panel {*/
+/*    border: 3px dashed #999;*/
+/*    background: transparent;*/
+/*    border-radius: 5px;*/
+/*    min-height: 100px;*/
+/*    min-width: 100px;*/
+/*    opacity: 1;*/
+/*    margin-bottom: 5px;*/
+/*    padding: 5px;*/
+/*    display: inline-block;*/
+/*    text-align: center;*/
+/*}*/
 
 #phone-container, #phone-container2, #phone-container3{
     overflow: auto;
 }
 
-.phone .textBox, .phone .codePicker, .phone .dropdownList {
+.phone .textBox, .phone .codePicker, .phone .dropdownList, .phone2 .textBox, .phone3 .textBox{
     word-break: break-word;
     color: #000000;
     min-height: 27px;
@@ -287,7 +287,7 @@ body {
     box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.3);
 }
 
-.phone .button {
+.phone .button, .phone2 .button, .phone3 .button{
     width: 60px;
     height: 32px;
     border-radius: 2px;
