@@ -222,10 +222,11 @@ body {
     position: relative;
     border: 4px dashed #5a5a5a;
     border-radius: 5px;
-    min-height: 200px;
+    min-width: 100%;
+    min-height: 250px;
     margin: 5px auto;
     padding: 5px;
-    display: block;
+    display: inline-block;
     overflow: auto;
     text-align: center;
 }
