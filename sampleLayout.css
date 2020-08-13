@@ -246,7 +246,7 @@ body {
 .phone .condition_panel, .phone2 .condition_panel, .phone3 .condition_panel {
     border: 1px dashed #333;
     background: transparent;
-    border-radius: 5px;
+    border-radius: 2px;
     min-height: 100px;
     min-width: 300px;
     /*margin: 0 auto;*/
@@ -273,24 +273,24 @@ body {
     overflow: auto;
 }
 
-.phone .textBox, .phone .codePicker, .phone .dropdownList, .phone2 .textBox, .phone3 .textBox{
+.phone .textBox, .phone .codePicker, .phone .dropdownList, .phone2 .textBox, .phone2 .codePicker, .phone2 .dropdownList,
+.phone3 .textBox, .phone3 .codePicker, .phone3 .dropdownList{
     word-break: break-word;
     color: #000000;
-    min-height: 27px;
     border: 1px solid #999;
     padding: 3px 0 0 5px;
     position: relative;
     display: block;
-    width: 200px;
-    height: 32px;
+    min-width: 200px;
+    min-height: 32px;
     background-color: #FFFFFF;
-    border-radius: 0px;
-    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.3);
+    border-radius: 0;
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0.3);
 }
 
 .phone .button, .phone2 .button, .phone3 .button{
-    width: 60px;
-    height: 32px;
+    min-width: 60px;
+    min-height: 32px;
     border-radius: 2px;
     border: 1px solid #a6a6a6;
     background: linear-gradient(#fff, #f0f0f0);
@@ -305,9 +305,9 @@ body {
     cursor: default;
 }
 
-.phone .splitButton {
-    width: 120px;
-    height: 32px;
+.phone .splitButton, .phone2 .splitButton, .phone3 .splitButton{
+    min-width: 120px;
+    min-height: 32px;
     border-radius: 2px;
     border: 1px solid #a6a6a6;
     background: linear-gradient(#fff, #f0f0f0);
@@ -322,13 +322,13 @@ body {
     cursor: default;
 }
 
-.phone .checkBox {
+.phone .checkBox, .phone2 .checkBox, .phone3 .checkBox {
     content: '';
     top: 25%;
     border-radius: 0;
     border: 1px solid #bbbbbb;
-    width: 14px;
-    height: 14px;
+    min-width: 14px;
+    min-height: 14px;
     background-color: #FFFFFF;
     box-shadow: none;
     box-sizing: border-box;
