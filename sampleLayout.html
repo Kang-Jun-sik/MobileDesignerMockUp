@@ -219,7 +219,7 @@
             return source.id === 'drag-elements' || source.id === 'drag-container';
         },
         accepts: function (el, target, source, sibling) {
-            if (target.closest('.phone') && !target.querySelector('.ui-resizable-resizing')){
+            if (target.closest('.phone') && !el.classList.contains('ui-resizable-resizing')){
                 return true;
             } else {
                 return false;
