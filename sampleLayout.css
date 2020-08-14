@@ -218,6 +218,7 @@ body {
     background-color: darkgray;
 }
 
+
 .drop-target {
     position: relative;
     border: 4px dashed #5a5a5a;
@@ -230,6 +231,7 @@ body {
     overflow: auto;
     text-align: center;
 }
+
 
 .drop-target > div {
     text-align: center;
