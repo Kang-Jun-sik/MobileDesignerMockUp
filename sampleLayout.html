@@ -6,6 +6,8 @@
     <link rel="stylesheet" href="sampleLayout.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/jquery-contextmenu/2.7.1/jquery.contextMenu.min.css">
 </head>
 <body>
 <div class="wrapper">
@@ -116,6 +118,9 @@
 <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" charset="UTF-8"></script>
 <script src="https://bevacqua.github.io/dragula/dist/dragula.js" charset="UTF-8"></script>
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-contextmenu/2.7.1/jquery.contextMenu.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-contextmenu/2.7.1/jquery.ui.position.js"></script>
 <script>
     // 스마트폰, 태플릿M, 태플릿L 실제 사이즈, 미리보기 사이즈 정의
     const size = {
@@ -143,7 +148,7 @@
         phone3 = document.querySelector('#phone_3')
 
     // phone2 <-> phone1 (type change)
-    document.querySelector('#phone_2').addEventListener('click', function(evt) {
+    document.querySelector('#phone_2').addEventListener('click', function (evt) {
         let phone = [phone1, phone2];
         let phoneClass = {
             'phone_1': '',
@@ -153,9 +158,9 @@
             let className = item.classList;
             if (className.contains('small')) {
                 phoneClass[item.id] = 'small';
-            } else if (className.contains('medium')){
+            } else if (className.contains('medium')) {
                 phoneClass[item.id] = 'medium';
-            } else if (className.contains('large')){
+            } else if (className.contains('large')) {
                 phoneClass[item.id] = 'large';
             }
         })
@@ -173,7 +178,7 @@
     })
 
     // phone3 <-> phone1 (type change)
-    document.querySelector('#phone_3').addEventListener('click', function(evt) {
+    document.querySelector('#phone_3').addEventListener('click', function (evt) {
         let phone = [phone1, phone3];
         let phoneClass = {
             'phone_1': '',
@@ -183,9 +188,9 @@
             let className = item.classList;
             if (className.contains('small')) {
                 phoneClass[item.id] = 'small';
-            } else if (className.contains('medium')){
+            } else if (className.contains('medium')) {
                 phoneClass[item.id] = 'medium';
-            } else if (className.contains('large')){
+            } else if (className.contains('large')) {
                 phoneClass[item.id] = 'large';
             }
         })
@@ -219,7 +224,7 @@
             return source.id === 'drag-elements' || source.id === 'drag-container';
         },
         accepts: function (el, target, source, sibling) {
-            if (target.closest('.phone') && !el.classList.contains('ui-resizable-resizing')){
+            if (target.closest('.phone') && !el.classList.contains('ui-resizable-resizing')) {
                 return true;
             } else {
                 return false;
@@ -227,27 +232,29 @@
         },
         copySortSource: false,
     })
-    .on('drag', function (el) {
-        console.log('drag Event : ' + el.className);
-    })
-    .on('drop', function (el, target) {
-        if (el.classList.contains('checkBox')){
-            el.innerText = '';
-        }
-        copyControl();
-        el.classList.add(uuidv4()); //=> 밑에 함수 태울때 re-size className 중복시 리사이즈 핸들이 작동이 안되어 고유 아이디 부여
-        canResizeable(el);
-        console.log('drop Event : ' + el.innerHTML);
-    })
-    .on('over', function (el) {
-        console.log('over Event : ' + el.innerHTML);
-    })
-    .on('out', function (el) {
-        console.log('out Event : ' + el.innerHTML);
-    });
+        .on('drag', function (el) {
+            console.log('drag Event : ' + el.className);
+        })
+        .on('drop', function (el, target) {
+            if (el.classList.contains('checkBox')) {
+                el.innerText = '';
+            }
+            copyControl();
+            el.classList.add(uuidv4()); //=> 밑에 함수 태울때 re-size className 중복시 리사이즈 핸들이 작동이 안되어 고유 아이디 부여
+            canResizeable(el);
+            canContextMenu(el);
+
+            console.log('drop Event : ' + el.innerHTML);
+        })
+        .on('over', function (el) {
+            console.log('over Event : ' + el.innerHTML);
+        })
+        .on('out', function (el) {
+            console.log('out Event : ' + el.innerHTML);
+        });
     drake1.containers.push(document.querySelector('#drag-elements'));
     drake1.containers.push(document.querySelector('#drag-container'));
-    Array.from(document.querySelectorAll('.drop-target')).forEach(function (item){
+    Array.from(document.querySelectorAll('.drop-target')).forEach(function (item) {
         drake1.containers.push(item);
     })
     drake1.containers.push(document.querySelector('#phone_1'));
@@ -257,21 +264,21 @@
             return handle.classList.contains('drop-target');
         }
     })
-    .on('drag', function (el) {
-        console.log('drag Event : ' + el.innerHTML);
-    })
-    .on('drop', function (el) {
-        console.log('drop Event : ' + el.innerHTML);
-    })
-    .on('over', function (el) {
-        console.log('over Event : ' + el.innerHTML);
-    })
-    .on('out', function (el) {
-        console.log('out Event : ' + el.innerHTML);
-    });
+        .on('drag', function (el) {
+            console.log('drag Event : ' + el.innerHTML);
+        })
+        .on('drop', function (el) {
+            console.log('drop Event : ' + el.innerHTML);
+        })
+        .on('over', function (el) {
+            console.log('over Event : ' + el.innerHTML);
+        })
+        .on('out', function (el) {
+            console.log('out Event : ' + el.innerHTML);
+        });
     drake2.containers.push(document.querySelector('#phone-container'));
 
-    const copyControl = function(){
+    const copyControl = function () {
         phone2.innerHTML = phone1.innerHTML;
         phone3.innerHTML = phone1.innerHTML;
     }
@@ -281,6 +288,36 @@
             var r = Math.random() * 16 | 0, v = c === 'x' ? r : (r & 0x3 | 0x8);
             return v.toString(16);
         });
+    }
+
+    function canContextMenu(el) {
+        const selectorComma = '.';
+        let selectorVal = selectorComma.concat(el.classList[0]);
+        $.contextMenu({
+            selector: selectorVal,
+            callback: function (key, options) {
+                var m = "clicked: " + key;
+                window.console && console.log(m) || alert(m);
+            },
+            items: {
+                "edit": {name: "Edit", icon: "edit"},
+                "cut": {name: "Cut", icon: "cut"},
+                "copy": {name: "Copy", icon: "copy"},
+                "paste": {name: "Paste", icon: "paste"},
+                "delete": {name: "Delete", icon: "delete"},
+                "delete2": {name: "Delete2", icon: "memo"},
+                "sep1": "---------",
+                "quit": {
+                    name: "Quit", icon: function () {
+                        return 'context-menu-icon context-menu-icon-quit';
+                    }
+                }
+            }
+        });
+
+        $('.context-menu-one').on('click', function (e) {
+            console.log('clicked', this);
+        })
     }
 
     function canResizeable(el) {

@@ -337,10 +337,12 @@ body {
 }
 
 .drop-target > div:active {
+    /*
     -webkit-animation: wiggle 0.3s 0s infinite ease-in;
     animation: wiggle 0.3s 0s infinite ease-in;
     opacity: .6;
     border: 2px solid #000;
+    */
 }
 
 @media (max-width: 992px) {
